@@ -1,5 +1,5 @@
 # ulimit
-ulimit allows users to run SetMax() to set the maximum filesystem ulimit.
+ulimit.SetMax() allows users to set the maximum possible filesystem ulimit.
 
 In theory, when we run the following code, we should be able to set the ulimit (rLimit.Cur) to any number up to rLimit.Max: 
 
