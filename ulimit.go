@@ -6,8 +6,8 @@ import (
 )
 
 // SetMax sets the maximum possible filesystem ulimit (rLimit.Cur)
-// macOS maximum seems to be 10240
 func SetMax() error {
+	// macOS maximum seems to be 10240
 	var rLimit syscall.Rlimit
 	err := syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
 	if err != nil {
