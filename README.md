@@ -1,7 +1,7 @@
 # ulimit
 ulimit.SetMax() is go code that allows users to set the maximum possible filesystem ulimit.
 
-In theory, when we run the following code, we should be able to set the ulimit (rLimit.Cur) to any number up to rLimit.Max: 
+In theory, when we run the following go code, we should be able to set the ulimit (rLimit.Cur) to any number up to rLimit.Max: 
 
 ```
 var rLimit syscall.Rlimit
