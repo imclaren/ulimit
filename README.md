@@ -2,20 +2,20 @@
 ulimit.SetMax() allows users to set the maximum possible filesystem ulimit ([GoDoc](https://godoc.org/github.com/imclaren/ulimit)).
 
 ```
-	oldLimit, err := ulimit.Get()
-	if err != nil {
-		log.Fatal(err)
-	}
-	err = SetMax()
-	if err != nil {
-		log.Fatal(err)
-	}
-	newLimit, err := Get()
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(oldLimit, newLimit)
-	// -> 256 24576
+oldLimit, err := ulimit.Get()
+if err != nil {
+	log.Fatal(err)
+}
+err = SetMax()
+if err != nil {
+	log.Fatal(err)
+}
+newLimit, err := Get()
+if err != nil {
+	log.Fatal(err)
+}
+fmt.Println(oldLimit, newLimit)
+// -> 256 24576
 ```
 
 In theory, when we run the following go code, we should be able to set the ulimit (rLimit.Cur) to any number up to rLimit.Max: 
