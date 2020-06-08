@@ -6,11 +6,11 @@ oldLimit, err := ulimit.Get()
 if err != nil {
 	log.Fatal(err)
 }
-err = SetMax()
+err = ulimit.SetMax()
 if err != nil {
 	log.Fatal(err)
 }
-newLimit, err := Get()
+newLimit, err := ulimit.Get()
 if err != nil {
 	log.Fatal(err)
 }
