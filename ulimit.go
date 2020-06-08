@@ -39,9 +39,9 @@ func SetMax() error {
 }
 
 // Get gets the current ulimit
-func Get() (i uint64, error) {
+func Get() (i uint64, err error) {
 	var rLimit syscall.Rlimit
-	err := syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
+	err = syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
 	if err != nil {
 		return 0, fmt.Errorf("Error Getting Rlimit: %s", err.Error())
 	}
