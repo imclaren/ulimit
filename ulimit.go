@@ -5,7 +5,7 @@ import (
 	"syscall"
 )
 
-// SetMax sets the maximum rLimit 
+// SetMax sets the maximum possible filesystem ulimit (rLimit.Cur)
 // macOS maximum seems to be 10240
 func SetMax() error {
 	var rLimit syscall.Rlimit
