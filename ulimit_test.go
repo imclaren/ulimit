@@ -7,6 +7,11 @@ import (
 )
 
 func TestSetMax(t *testing.T) {
-	err := SetMax(0)
+	oldLimit, err := Get()
 	assert.Nil(t, err)
+	err = SetMax()
+	assert.Nil(t, err)
+	newLimit, err := Get()
+	assert.Nil(t, err)
+	assert.True(t, newLimit > oldLimit)
 }
