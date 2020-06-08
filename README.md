@@ -11,4 +11,4 @@ err := syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit)
 
 Unfortunately, if we try to set rLimit.Cur as rLimit.Max, the system may return an error because the actual limit is lower than rLimit.Max.
 
-Therefore ulimit.SetMax() uses brute force to find and then set the actual filesystem ulimit.
+Therefore ulimit.SetMax() uses brute force to find and then set the maximum possible filesystem ulimit.
