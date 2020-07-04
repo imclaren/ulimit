@@ -12,6 +12,15 @@ func SetMax() error {
 	if err != nil {
 		return fmt.Errorf("Error Getting Rlimit: %s", err.Error())
 	}
+
+	// Try to set the max
+	rLimit.Cur = rLimit.Max
+	err = syscall.Setrlimit(syscall.RLIMIT_NOFILE, &rLimit)
+	if err == nil {
+		return nil
+	}
+
+	// If that fails, set the maximum possible using brute force
 	i := rLimit.Max
 	lowerBound := uint64(0)
 	for {
@@ -20,13 +29,13 @@ func SetMax() error {
 		if err == nil {
 			if lowerBound == 0 {
 				lowerBound = i
-				i = i*10
+				i = i * 10
 			} else {
 				break
 			}
 		}
 		if lowerBound == 0 {
-			i = i/10
+			i = i / 10
 		} else {
 			i--
 		}
